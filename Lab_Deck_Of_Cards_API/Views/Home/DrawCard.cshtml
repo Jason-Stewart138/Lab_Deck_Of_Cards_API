@@ -1,0 +1,38 @@
+﻿@model Lab_Deck_Of_Cards_API.Models.DeckOfCardsApi;
+
+@{
+	ViewData["Title"] = "Results";
+}
+<div class="text-center">
+	<h1>Here Are Your Cards</h1>
+</div>
+
+<div class="card-group">
+
+	@foreach (var item in Model.cards)
+	{
+		<div class="card">
+			<div class="text-center">
+				<img class="card-img-top" src="@item.image" alt="Card image cap" style="width:200px">
+				<div class="card-body">
+					<h5 class="card-title">@item.value of @item.suit</h5>
+				</div>
+			</div>
+		</div>
+	}
+
+</div>
+<div class="text-center">
+	<h4>Cards Remaining In Deck:</h4>
+	<h4>@Model.remaining</h4>
+	@if(Model.remaining < 5)
+	{
+		<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='@Url.Action("StartOver", "Home")'">Draw Again?</button>
+	}
+	else
+	{
+	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='@Url.Action("DrawCard", "Home", new {id = Model.deck_id} )'">Draw Again?</button>	
+	}
+	
+	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='@Url.Action("Index", "Home")'">Start Over</button>
+</div>

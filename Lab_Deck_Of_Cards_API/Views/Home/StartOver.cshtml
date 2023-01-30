@@ -1,0 +1,12 @@
+﻿@model Lab_Deck_Of_Cards_API.Models.DeckOfCardsApi;
+
+@{
+	ViewData["Title"] = "Start Over";
+}
+
+<div class="text-center">
+	<h1>Not Enough Cards Remaining In Deck To Draw Again!</h1>
+	
+	
+	<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='@Url.Action("Index", "Home")'">Start Over</button>
+</div>

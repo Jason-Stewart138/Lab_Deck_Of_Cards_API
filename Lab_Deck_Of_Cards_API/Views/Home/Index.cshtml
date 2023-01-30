@@ -1,0 +1,12 @@
+﻿@model Lab_Deck_Of_Cards_API.Models.DeckOfCardsApi;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-1">Welcome To Virtual Card Deck</h1>
+    <h3 class="display-8">A New Deck Has Been Generated For You!</h3>
+
+    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='@Url.Action("DrawCard", "Home", new {id = Model.deck_id} )'">Draw Top 5 Cards</button>
+</div>
